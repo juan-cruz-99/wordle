@@ -30,14 +30,10 @@ void main()
     points = 5000;
     countLetters = 0;
     countPositions = 0;
-    for (x = 0; x < 5; x++)
-    {
-      correctLetters[x] = ' ';
-      correctPositions[x] = ' ';
-    }
+
     for (x = 0; x < 6; x++)
     {
-      printf("Ingrese una palabra de 5 letras\n");
+      printf("\nIngrese una palabra de 5 letras: ");
       scanf("%s", tries[x]);
 
       if (strcmp(secret, tries[x]) == 0)
@@ -52,8 +48,12 @@ void main()
 
       points += WRONG_WORD_POINTS;
 
+      printf("\n ___________________");
+
       for (z = 0; z <= x; z++)
       {
+        printf("\n| ");
+
         for (i = 0; i < 5; i++)
         {
           if (hasLetter(tries[z][i], secret))
@@ -83,19 +83,18 @@ void main()
           {
             printf("%c", tries[z][i]);
           }
+          printf(" | ");
         }
-
-        printf("\n");
-        printf("----- \n");
+        printf("\n -------------------");
       };
       if (x == 5)
       {
-        printf("Perdiste. La palabra correcta era %s \n", secret);
+        printf("\nPerdiste. La palabra correcta era %s \n", secret);
         printf("Puntos: 0 \n");
       }
     }
 
-    printf("Para seguir jugando precione un numero distinto de 0 \n");
+    printf("\nPara seguir jugando precione un numero distinto de 0 \n");
     scanf("%i", &nextGame);
 
   } while (nextGame != 0);
